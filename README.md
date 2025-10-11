@@ -1,4 +1,4 @@
-# pythonminiproject
+# Aerial Surveillence for wildlife and agriculture conservation using OpenCV
 🛰️ TerraSight Multi-Habitat Analysis System
 Project Overview
 The TerraSight Multi-Habitat Analysis System is a pure-software computer vision project designed to simulate the real-time analysis pipeline of an aerial surveillance platform (such as a drone). The goal is to extract critical intelligence regarding agricultural and environmental conditions across multiple domains using Python and OpenCV.
