@@ -1,95 +1,63 @@
-# Aerial Surveillence for wildlife and agriculture conservation using OpenCV
-🛰️ TerraSight Multi-Habitat Analysis System
-Project Overview
-The TerraSight Multi-Habitat Analysis System is a pure-software computer vision project designed to simulate the real-time analysis pipeline of an aerial surveillance platform (such as a drone). The goal is to extract critical intelligence regarding agricultural and environmental conditions across multiple domains using Python and OpenCV.
+# TerraSight — Aerial Surveillance for Agriculture & Wildlife
 
-The application is controlled via a user-friendly Tkinter GUI and features three distinct analysis modules running on simulated video feeds.
+A computer vision system that simulates an aerial surveillance platform for
+agricultural and environmental monitoring using Python and OpenCV.
 
-✨ Key Features
-This system provides automated analysis across three critical areas:
+TerraSight analyzes video feeds across three domains:
+- Soil conservation and erosion detection
+- Crop health analysis
+- Wildlife monitoring and object detection
 
-Soil Conservation (Erosion Detection):
+## Overview
 
-Technique: HSV Color Filtering.
+TerraSight is a software-based computer vision system designed to simulate
+the analysis pipeline of an aerial surveillance platform such as a drone.
 
-Output: Highlights bare soil and potential erosion zones in Bright Red for easy identification. Includes a high-contrast legend for clarity.
+The system processes video feeds and extracts visual information related to
+agricultural conditions and wildlife activity. A Tkinter-based interface
+allows users to select and run the different analysis modules.
 
-Crop Health Analysis (VI Simulation):
+## Analysis Modules
 
-Technique: Simulated Vegetation Index (VI) calculation ( 
-G+R
-G−R
-​
- ) using standard RGB imagery.
+### 🌱 Soil Conservation
 
-Output: Displays the video using a JET Colormap gradient, where red/yellow indicates high health/density and blue/black indicates stress or bare ground. Features a vertical gradient color bar legend.
+**Method:** HSV color filtering
 
-Wildlife Monitoring (Object Detection):
+Identifies exposed/bare soil regions in agricultural imagery that may
+indicate potential erosion zones.
 
-Technique: Real-time object detection using the lightweight YOLOv3-tiny Convolutional Neural Network (CNN).
+**Output:** Highlighted regions of detected bare soil.
 
-Output: Draws bounding boxes and class labels (e.g., 'horse', 'bird') over animals detected in various challenging scenarios (Open Habitat, Predator Hunting).
+### 🌾 Crop Health Analysis
 
-🛠️ Technology Stack
-Core Language: Python 3.x
+**Method:** Simulated vegetation index using RGB imagery
 
-Computer Vision & Video: OpenCV (cv2)
+Processes agricultural video frames to estimate vegetation density/health
+and visualize variations across the scene.
 
-Deep Learning Backend: TensorFlow (used for underlying YOLO model structure)
+**Output:** Color-mapped visualization indicating areas of higher and
+lower vegetation health/density.
 
-Numerical Processing: NumPy
+### 🦌 Wildlife Monitoring
 
-User Interface (GUI): Tkinter (built-in Python GUI library)
+**Method:** YOLOv3-tiny object detection
 
-🚀 Setup and Installation
-1. Prerequisites
-Ensure you have Python 3.x installed. Then, install the required libraries:
+Detects objects in wildlife video feeds using the lightweight YOLOv3-tiny
+model and overlays bounding boxes and class labels on detected objects.
 
-pip install opencv-python numpy tensorflow
+**Output:** Real-time object detection with bounding boxes and labels.
 
-(Note: Tkinter is usually included with standard Python installations.)
 
-2. Required ML Assets (YOLO Files)
-To run the Wildlife Monitoring module, you must download the following three configuration files and place them directly in the root of the project directory:
+## System Workflow
 
-File
-
-Type
-
-Purpose
-
-yolov3-tiny.cfg
-
-Configuration
-
-Defines the YOLO network architecture.
-
-yolov3-tiny.weights
-
-Weights
-
-The pre-trained weights for object recognition.
-
-coco.names
-
-Class Names
-
-Contains the 80 object labels recognized by the model.
-
-3. Video Setup
-Create a folder named sample_videos in the root directory and place your three unique wildlife videos and the agricultural video inside it, ensuring their names match the paths defined in main.py.
-
-▶️ How to Run the Application
-Navigate to the project root directory in your terminal.
-
-Execute the main script:
-
-python main.py
-
-The TerraSight GUI window will launch.
-
-Click "1. Soil Conservation" or "2. Crop Health Analysis" to immediately run the agricultural video analysis.
-
-Click "3. Wildlife Monitoring" to open a sub-menu where you can select one of the specific wildlife scenario videos (Open Habitat, Predator Hunting, Birds).
-
-To exit any video stream, press the 'q' key while the OpenCV video window is focused.
+Video Feed
+   ↓
+Frame Acquisition
+   ↓
+Module Selection
+   ↓
+Computer Vision Processing
+   ↓
+Analysis / Detection
+   ↓
+Visualized Results
