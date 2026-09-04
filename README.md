@@ -1,63 +1,65 @@
-# TerraSight — Aerial Surveillance for Agriculture & Wildlife
+# TerraSight : Agricultural & Wildlife Aerial Surveillance 
 
-A computer vision system that simulates an aerial surveillance platform for
-agricultural and environmental monitoring using Python and OpenCV.
-
-TerraSight analyzes video feeds across three domains:
-- Soil conservation and erosion detection
-- Crop health analysis
-- Wildlife monitoring and object detection
+A computer vision system that simulates an aerial surveillance platform for agricultural and wildlife monitoring using Python and OpenCV.
 
 ## Overview
 
-TerraSight is a software-based computer vision system designed to simulate
-the analysis pipeline of an aerial surveillance platform such as a drone.
+TerraSight processes video feeds through three analysis modules:
 
-The system processes video feeds and extracts visual information related to
-agricultural conditions and wildlife activity. A Tkinter-based interface
-allows users to select and run the different analysis modules.
+- **Soil Conservation** — HSV-based detection of exposed soil and potential erosion zones
+- **Crop Health Analysis** — RGB-based vegetation index visualization
+- **Wildlife Monitoring** — YOLOv3-tiny object detection for wildlife footage
 
-## Analysis Modules
+A Tkinter GUI provides an interface for selecting and running each module.
 
-### 🌱 Soil Conservation
+## Tech Stack
 
-**Method:** HSV color filtering
+- Python
+- OpenCV
+- YOLOv3-tiny
+- TensorFlow
+- NumPy
+- Tkinter
 
-Identifies exposed/bare soil regions in agricultural imagery that may
-indicate potential erosion zones.
+## Project Structure
 
-**Output:** Highlighted regions of detected bare soil.
+`main.py` — Main application and GUI  
+`soil_module.py` — Soil conservation analysis  
+`crop_module.py` — Crop health analysis  
+`wildlife_module.py` — Wildlife object detection  
+`coco.names` — YOLO object class labels  
+`yoloV3-tiny.cfg` — YOLO network configuration
 
-### 🌾 Crop Health Analysis
+## Setup
 
-**Method:** Simulated vegetation index using RGB imagery
+Clone the repository:
 
-Processes agricultural video frames to estimate vegetation density/health
-and visualize variations across the scene.
+`git clone https://github.com/shreyat1511/terrasight-aerial-surveillance.git`
 
-**Output:** Color-mapped visualization indicating areas of higher and
-lower vegetation health/density.
+`cd terrasight-aerial-surveillance`
 
-### 🦌 Wildlife Monitoring
+Install the required packages:
 
-**Method:** YOLOv3-tiny object detection
+`pip install opencv-python numpy tensorflow`
 
-Detects objects in wildlife video feeds using the lightweight YOLOv3-tiny
-model and overlays bounding boxes and class labels on detected objects.
+For wildlife detection, download the YOLOv3-tiny weights and place `yoloV3-tiny.weights` in the project directory alongside `yoloV3-tiny.cfg` and `coco.names`.
 
-**Output:** Real-time object detection with bounding boxes and labels.
+Add the required video files using the filenames expected by `main.py`.
 
+## Run
 
-## System Workflow
+`python main.py`
 
-Video Feed
-   ↓
-Frame Acquisition
-   ↓
-Module Selection
-   ↓
-Computer Vision Processing
-   ↓
-Analysis / Detection
-   ↓
-Visualized Results
+Use the GUI to select the desired analysis module.
+
+Press `q` to exit an OpenCV video window.
+
+## Applications
+
+The project demonstrates computer vision applications in:
+
+- Agricultural monitoring
+- Soil and erosion assessment
+- Crop health visualization
+- Wildlife monitoring
+- Aerial surveillance
