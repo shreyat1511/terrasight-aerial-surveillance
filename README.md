@@ -1,6 +1,6 @@
 # TerraSight : Agricultural & Wildlife Aerial Surveillance 
 
-A computer vision system that simulates an aerial surveillance platform for agricultural and wildlife monitoring using Python and OpenCV.
+A computer vision system for agricultural and wildlife monitoring using aerial surveillance imagery, Python, and OpenCV.
 
 ## Overview
 
